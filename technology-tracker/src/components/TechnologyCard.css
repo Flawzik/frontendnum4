@@ -1,0 +1,226 @@
+.technology-card {
+    border: 2px solid #e1e5e9;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 16px 0;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.technology-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Стили для разных статусов */
+.technology-card.completed {
+    border-left: 6px solid #4CAF50;
+    background: linear-gradient(135deg, #f8fff8 0%, #e8f5e8 100%);
+}
+
+.technology-card.in-progress {
+    border-left: 6px solid #FF9800;
+    background: linear-gradient(135deg, #fff8f1 0%, #ffe8d6 100%);
+}
+
+.technology-card.not-started {
+    border-left: 6px solid #9E9E9E;
+    background: linear-gradient(135deg, #f5f5f5 0%, #eeeeee 100%);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.card-title {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 1.4em;
+    font-weight: 600;
+    flex: 1;
+}
+
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 500;
+    margin-left: 12px;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.status-badge.completed {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.status-badge.in-progress {
+    background-color: #FF9800;
+    color: white;
+}
+
+.status-badge.not-started {
+    background-color: #9E9E9E;
+    color: white;
+}
+
+.card-description {
+    color: #546e7a;
+    line-height: 1.5;
+    margin: 0 0 15px 0;
+    font-size: 1em;
+}
+
+.card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #f0f0f0;
+    gap: 10px;
+}
+
+.notes-toggle-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.85em;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex: 1;
+}
+
+.notes-toggle-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.details-btn {
+    background: linear-gradient(135deg, #36D1DC, #5B86E5);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.85em;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex: 1;
+}
+
+.details-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(54, 209, 220, 0.3);
+}
+
+.click-hint {
+    font-size: 0.8em;
+    color: #78909c;
+    text-align: right;
+    flex: 2;
+}
+
+.notes-section {
+    margin-top: 15px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    animation: slideDown 0.3s ease-out;
+}
+
+.notes-section h4 {
+    margin: 0 0 10px 0;
+    color: #495057;
+    font-size: 1em;
+}
+
+.notes-textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.9em;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+}
+
+.notes-textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1);
+}
+
+.notes-hint {
+    font-size: 0.8em;
+    color: #6c757d;
+    margin-top: 8px;
+    text-align: center;
+    font-style: italic;
+}
+
+/* Анимации */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.technology-card {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.technology-card.status-changing {
+    animation: pulse 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+    .card-actions {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+    }
+
+    .notes-toggle-btn,
+    .details-btn,
+    .click-hint {
+        width: 100%;
+        text-align: center;
+        flex: none;
+    }
+
+    .click-hint {
+        order: 3;
+    }
+
+    .technology-card {
+        padding: 15px;
+    }
+}
